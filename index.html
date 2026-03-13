@@ -12,19 +12,17 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Bebas+Neue&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --noir:       #080808;
-      --anthracite: #111111;
-      --or:         #c9a96e;
-      --or-pale:    #e8d5aa;
-      --blanc:      #f5f0e8;
-      --gris:       #4a4a4a;
-      --gris-clair: #8a8a7a;
+      --noir:       #000000;
+      --anthracite: #0d0d0d;
+      --blanc:      #ffffff;
+      --gris:       #3a3a3a;
+      --gris-clair: #7a7a7a;
     }
 
     html, body {
@@ -32,16 +30,17 @@
       overflow: hidden;
       background: var(--noir);
       color: var(--blanc);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
 
+    /* grain subtil */
     body::before {
       content: '';
       position: fixed; inset: 0;
       pointer-events: none; z-index: 1000;
-      opacity: 0.04;
+      opacity: 0.035;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 180px 180px;
     }
@@ -55,12 +54,13 @@
       position: relative;
     }
 
+    /* ligne verticale centrale */
     .page::after {
       content: '';
       position: absolute;
       top: 8vh; bottom: 8vh; left: 50%;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(201,169,110,0.18), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.12), transparent);
       pointer-events: none; z-index: 1;
     }
 
@@ -72,21 +72,8 @@
       align-items: flex-start;
       padding: clamp(2rem,4vw,4rem) clamp(2rem,3.5vw,4rem) clamp(2rem,4vw,4rem) clamp(3rem,5.5vw,6rem);
       position: relative;
-      background: radial-gradient(ellipse 80% 60% at 30% 50%, #181510 0%, var(--noir) 70%);
+      background: var(--noir);
       animation: fadeLeft 1s cubic-bezier(0.16,1,0.3,1) both;
-    }
-
-    .col-left::before {
-      content: 'M';
-      position: absolute;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 80vw;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(201,169,110,0.025);
-      top: 50%; left: -8%;
-      transform: translateY(-50%);
-      pointer-events: none; user-select: none;
-      line-height: 1; z-index: 0;
     }
 
     @keyframes fadeLeft {
@@ -99,14 +86,14 @@
       top: clamp(1.2rem,2.5vw,2rem);
       left: clamp(3rem,5.5vw,6rem); right: clamp(2rem,3.5vw,4rem);
       height: 1px;
-      background: linear-gradient(90deg, rgba(201,169,110,0.28), transparent);
+      background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
     }
     .line-bottom {
       position: absolute;
       bottom: clamp(1.2rem,2.5vw,2rem);
       left: clamp(3rem,5.5vw,6rem); right: clamp(2rem,3.5vw,4rem);
       height: 1px;
-      background: linear-gradient(90deg, rgba(201,169,110,0.28), transparent);
+      background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
     }
 
     .hero-content {
@@ -122,51 +109,51 @@
     .divider {
       width: clamp(32px,4vw,52px);
       height: 1px;
-      background: linear-gradient(90deg, var(--or), transparent);
-      opacity: 0.65;
+      background: rgba(255,255,255,0.25);
     }
 
     .baseline {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 300;
-      font-size: clamp(0.85rem,1.3vw,1.1rem);
-      line-height: 1.75;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.78rem,1.15vw,0.98rem);
+      line-height: 1.8;
       color: var(--gris-clair);
-      letter-spacing: 0.015em;
+      letter-spacing: 0.01em;
     }
 
     .cta-wrap {
       display: flex; flex-direction: column;
-      gap: 0; margin-top: 0.3rem;
+      gap: 0; margin-top: 0.4rem;
     }
 
     .btn-clan {
       display: inline-block;
-      padding: 0.8rem 2.2rem;
+      padding: 0.78rem 2rem;
       background: transparent;
-      border: 1px solid var(--or);
-      color: var(--or-pale);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(0.85rem,1.2vw,1.05rem);
-      letter-spacing: 0.3em;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--blanc);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: clamp(0.7rem,1vw,0.82rem);
+      letter-spacing: 0.2em;
       text-decoration: none;
       text-transform: uppercase;
       cursor: pointer;
       position: relative; overflow: hidden;
-      transition: color 0.35s ease;
+      transition: color 0.3s ease;
       align-self: flex-start;
     }
     .btn-clan::before {
       content: '';
       position: absolute; inset: 0;
-      background: var(--or);
+      background: var(--blanc);
       transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      transition: transform 0.38s cubic-bezier(0.16,1,0.3,1);
       z-index: -1;
     }
     .btn-clan:hover, .btn-clan:focus-visible { color: var(--noir); }
     .btn-clan:hover::before, .btn-clan:focus-visible::before { transform: scaleX(1); }
-    .btn-clan:focus-visible { outline: 1px solid var(--or); outline-offset: 4px; }
+    .btn-clan:focus-visible { outline: 1px solid var(--blanc); outline-offset: 4px; }
 
     /* ── COL DROITE ── */
     .col-right {
@@ -187,44 +174,49 @@
 
     .manifeste-header {
       display: flex; flex-direction: column;
-      align-items: center; gap: 0.4rem;
+      align-items: center; gap: 0.5rem;
       width: 100%;
     }
 
     .section-label {
-      font-size: 0.58rem; letter-spacing: 0.45em;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.58rem;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
-      color: var(--or); opacity: 0.75;
+      color: var(--gris-clair);
     }
 
     .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.8rem,4.5vw,3.2rem);
-      letter-spacing: 0.15em;
-      color: var(--blanc); line-height: 1;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.6rem,3.5vw,2.6rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blanc);
+      line-height: 1;
     }
 
     .video-wrapper {
       width: 100%; max-width: 560px;
       aspect-ratio: 16/9;
-      border-radius: 3px;
+      border-radius: 2px;
       overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(201,169,110,0.1),
-        0 20px 60px rgba(0,0,0,0.85),
-        0 4px 16px rgba(0,0,0,0.5);
+        0 0 0 1px rgba(255,255,255,0.07),
+        0 20px 60px rgba(0,0,0,0.9);
     }
     .video-wrapper iframe {
       width: 100%; height: 100%;
       border: none; display: block;
     }
 
-/* ── TOAST ── */
+    /* ── TOAST ── */
     .toast {
       position: fixed; bottom: 1.5rem; left: 50%;
       transform: translateX(-50%) translateY(10px);
-      background: #1a1a1a;
-      border: 1px solid rgba(201,169,110,0.25);
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.15);
       color: var(--gris-clair);
       font-size: 0.65rem; letter-spacing: 0.15em;
       padding: 0.45rem 1.1rem;
@@ -247,20 +239,19 @@
         align-items: center; text-align: center;
         padding: 3.5rem 1.8rem 2.5rem;
       }
-      .col-left::before { display: none; }
       .line-top, .line-bottom { left: 1.8rem; right: 1.8rem; }
       .hero-content { align-items: center; max-width: 100%; }
       .btn-clan { align-self: center; }
       .col-right { padding: 2.5rem 1.8rem 3rem; }
     }
 
-    :focus-visible { outline: 1px solid var(--or); outline-offset: 4px; }
+    :focus-visible { outline: 1px solid var(--blanc); outline-offset: 4px; }
     .skip-link {
       position: absolute; top: -100%; left: 1rem;
-      background: #1a1a1a; color: var(--or);
+      background: #111; color: var(--blanc);
       padding: 0.4rem 0.8rem; font-size: 0.7rem;
       letter-spacing: 0.1em; z-index: 9999;
-      text-decoration: none; border: 1px solid var(--or);
+      text-decoration: none; border: 1px solid var(--blanc);
     }
     .skip-link:focus { top: 0.5rem; }
   </style>
@@ -289,8 +280,8 @@
 
       <div class="cta-wrap">
         <a class="btn-clan"
-           href="mailto:pennbras@mafia.bzh"
-           aria-label="Rejoindre le clan">
+           href="mailto:clan@mafia.bzh"
+           aria-label="Rejoindre le clan — envoyer un email à clan@mafia.bzh">
           Rejoindre le clan
         </a>
       </div>
@@ -313,8 +304,6 @@
       </iframe>
     </div>
   </section>
-
-
 
 </main>
 
